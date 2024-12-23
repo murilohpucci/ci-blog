@@ -1,0 +1,7 @@
+/* This is the main file of the css, import any css here. */
+/*@import "bootstrap-icons/font/bootstrap-icons.css";*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

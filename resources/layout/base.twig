@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{{ title }}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ base_url('favicon.ico') }}">
+        {# Main css files with tailwind #}
+        <link href="{{ base_url('dist/css/main.css') }}" rel="stylesheet" media="all">
+        
+        <script src="{{ base_url('dist/js/main.js') }}" defer></script>
+
+    {% endblock %}
+
+</head>
+<body class="bg-white">
+
+{# Top Bar Nav #}
+{% block top_nav_bar %}
+{% endblock %}
+
+{# Main hero section#}
+<header class="w-full bg-zinc-800 mx-auto">
+    <div class="flex flex-row justify-center items-center max-sm:py-8">
+        <img class="w-28" src="{{ base_url('logo.webp') }}">
+        <a class="font-bold text-white uppercase hover:opacity-75 text-5xl" href="{{ site_url() }}">
+            Loot de Jogos
+        </a>
+    </div>
+</header>
+
+{# Main nav #}
+{% block main_nav_bar %}
+    {% include 'menu/main_nav.twig' %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+    <footer class="w-full border-t bg-white pb-12">
+        <div class="w-full container mx-auto flex flex-col items-center">
+            <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+                <a href="#" class="uppercase px-3">About Us</a>
+                <a href="#" class="uppercase px-3">Privacy Policy</a>
+                <a href="#" class="uppercase px-3">Terms & Conditions</a>
+                <a href="#" class="uppercase px-3">Contact Us</a>
+            </div>
+            <div class="uppercase pb-6">&copy; myblog.com</div>
+        </div>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

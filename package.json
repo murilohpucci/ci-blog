@@ -1,0 +1,24 @@
+{
+    "name": "codeigniter-vite",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite build --watch"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.4.49",
+        "postcss-import": "^16.1.0",
+        "postcss-nested": "^7.0.2",
+        "sass-embedded": "^1.83.0",
+        "tailwindcss": "^3.4.17",
+        "vite": "^6.0.4"
+    },
+    "dependencies": {
+        "alpinejs": "^3.14.7",
+        "bootstrap-icons": "^1.11.3",
+        "ckeditor5": "^44.1.0"
+    }
+}

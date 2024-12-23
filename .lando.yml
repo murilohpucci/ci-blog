@@ -1,0 +1,52 @@
+name: ci-blog
+recipe: lamp
+config:
+  webroot: public
+  php: '8.3'
+  xdebug: true
+services:
+  appserver:
+    run:
+      - "composer install"
+      - "php spark migrate --all"
+    scanner: false
+    env_file:
+      - .env
+
+  node:
+    type: node:18
+    scanner: false
+    run:
+      - npm install
+      - npm run build
+  database:
+    type: mariadb
+    portforward: true
+    scanner: false
+  phpmyadmin:
+    scanner: false
+    type: phpmyadmin
+    hosts:
+      - database
+  mailhog:
+    scanner: false
+    type: mailhog
+    portforward: false
+    hogfrom:
+      - appserver
+tooling:
+  spark:
+    service: appserver
+    cmd: php spark
+  spark-cc:
+    service: appserver
+    cmd: php spark cache:clear
+  vite:
+    service: node
+    cmd: npm run build
+  vite-dev:
+    service: node
+    cmd: npm run dev
+  npm:
+    service: node
+    cmd: npm
