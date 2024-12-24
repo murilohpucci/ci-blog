@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\ThirdParty\TwigViewTrait;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -12,7 +13,6 @@ use Config\Paths;
 use Config\Services;
 use Kenjis\CI4Twig\Twig;
 use Psr\Log\LoggerInterface;
-use ThirdParty\TwigViewTrait;
 
 /**
  * Class BaseController

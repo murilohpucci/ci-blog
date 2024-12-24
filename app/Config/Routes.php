@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Auth\LoginController;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -8,5 +9,11 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 service('auth')->routes($routes, ['except' => ['login']]);
-$routes->get('login', '\App\Controllers\Auth\LoginController::loginView');
-$routes->post('login', '\App\Controllers\Auth\LoginController::loginAction');
+$routes->get('login', [LoginController::class, 'loginView']);
+$routes->post('login', [LoginController::class, 'loginAction']);
+
+
+$routes->resource('api/node', [
+    'controller' => 'nodes',
+]);
+$routes->presenter('admin/node');
